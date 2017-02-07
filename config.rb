@@ -16,6 +16,14 @@ compass_config do |config|
 end
 
 ###
+# Github Pages Deployment
+###
+activate :deploy do |deploy|
+  deploy.deploy_method = :git
+  deploy.build_before = true
+end
+
+###
 # Page options, layouts, aliases and proxies
 ###
 
