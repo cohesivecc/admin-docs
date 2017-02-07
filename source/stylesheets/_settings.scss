@@ -1,14 +1,19 @@
 
 $bg-overlay-opacity: 0.7;
 $theme-palette: (
-  'blue':         ( color: #16a7d8,     text: #FFF,     header: #FFF,       link: #FFF,       overlay_opacity: $bg-overlay-opacity),
-  'yellow':       ( color: #ffef00,     text: #6e6c6c,  header: #666,       link: #6e6c6c,    overlay_opacity: $bg-overlay-opacity),
-  'red':          ( color: #ec3a43,     text: #FFF,     header: #FFF,       link: #FFF,       overlay_opacity: 0.8),
-  'green':        ( color: #1dac5c,     text: #fff,     header: #FFF,       link: #FFF,       overlay_opacity: $bg-overlay-opacity),
-  'orange':       ( color: #ef753d,     text: #FFF,     header: #FFF,       link: #FFF,       overlay_opacity: $bg-overlay-opacity),
-  'black':        ( color: #000000,     text: #FFF,     header: #FFF,       link: #FFF,       overlay_opacity: 0.6),
-	'dark-gray':    ( color: #828282,     text: #FEFEFE,  header: #FFF,       link: #FFF,       overlay_opacity: $bg-overlay-opacity),
-  'white':        ( color: #ffffff,     text: #6e6c6c,  header: #16a7d8,    link: #24bbdf,    overlay_opacity: $bg-overlay-opacity)
+  'blue':         ( color: #23bee2,     text: #FFF,     header: #FFF,       link: #FFF,       overlay_opacity: $bg-overlay-opacity),
+  'light-blue':   ( color: #b7f1f7,     text: #6e6c6c,  header: #FFF,       link: #FFF,       overlay_opacity: $bg-overlay-opacity),
+  'yellow':       ( color: #e9e25f,     text: #6e6c6c,  header: #666,       link: #6e6c6c,    overlay_opacity: $bg-overlay-opacity),
+  'red':          ( color: #ef3a43,     text: #FFF,     header: #FFF,       link: #FFF,       overlay_opacity: 0.8),
+  'green':        ( color: #18c7aa,     text: #fff,     header: #FFF,       link: #FFF,       overlay_opacity: $bg-overlay-opacity),
+  'orange':       ( color: #fac960,     text: #FFF,     header: #FFF,       link: #FFF,       overlay_opacity: $bg-overlay-opacity),
+  'olive':        ( color: #8a6d2f,     text: #FFF,     header: #FFF,       link: #FFF,       overlay_opacity: $bg-overlay-opacity),
+  'black':        ( color: #0a0a0a,     text: #FFF,     header: #FFF,       link: #FFF,       overlay_opacity: 0.6),
+	'dark-gray':    ( color: #4d4d4d,     text: #FEFEFE,  header: #FFF,       link: #FFF,       overlay_opacity: $bg-overlay-opacity),
+  'gray':         ( color: #6d6b6b,     text: #FEFEFE,  header: #FFF,       link: #FFF,       overlay_opacity: $bg-overlay-opacity),
+  'light-gray':   ( color: #a9a8a8,     text: #FFF,     header: #FFF,       link: #FFF,       overlay_opacity: $bg-overlay-opacity),
+  'smoke':        ( color: #f9f9f9,     text: #a9a8a8,  header: #a9a8a8,    link: #a9a8a8,       overlay_opacity: $bg-overlay-opacity),
+  'white':        ( color: #fefefe,     text: #6e6c6c,  header: #16a7d8,    link: #24bbdf,    overlay_opacity: $bg-overlay-opacity)
 );
 
 
@@ -19,9 +24,10 @@ $button-border-style: solid;
 
 // Fonts.com Fonts
 $theme-fonts: (
-   arial: ( family: "Arial", variants: (
-                               default:  ( weight: normal, style: normal ),
-                               bold:     ( weight: bold, style: normal )
+   roboto: ( family: ('Roboto', 'Helvetica Neue', sans-serif), variants: (
+                               light:     ( weight: 300, style: normal ),
+                               default:   ( weight: 400, style: normal ),
+                               bold:      ( weight: 500, style: normal )
                              )
    )
 );

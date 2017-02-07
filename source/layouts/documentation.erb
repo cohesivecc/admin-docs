@@ -1,0 +1,12 @@
+<% wrap_layout :layout do %>
+  <section class="pad-2">
+    <div class="row">
+      <div class="column medium-4">
+        <%= partial 'partials/docs_nav' %>
+      </div>
+      <article class="column medium-8">
+        <%= yield %>
+      </article>
+    </div>
+  </section>
+<% end %>

@@ -1,10 +1,75 @@
 ---
-title: Welcome to Middleman
+
 ---
 
-<div class="column row text-center">
-  <h1>Middleman is Running</h1>
-  <p class="doc">
-    <%= link_to "Read Documentation Online", "https://middlemanapp.com", class: 'button bg-outline', target: "_blank" %>
-  </p><!-- .doc -->
-</div><!-- .welcome -->
+<div class="pad-6 bg-blue">
+  <div class="column row text-center">
+    <h1>CohesiveAdmin</h1>
+    <h3>Simple content management for Rails apps.</h3>
+  </div>
+</div>
+
+
+<section class="pad-3">
+  <div class="row" data-equalizer data-equalize-on="medium">
+    <div class="column medium-6" data-equalizer-watch>
+      <%= image_tag(lorem.image('600x300')) %>
+    </div>
+    <div class="column medium-6" data-equalizer-watch>
+      <div class="pad-sides-1 pad-1 vertically-centered">
+        <h4><i class="fa fa-thumbs-o-up"></i> Simple</h4>
+        <p class="text-large">CohesiveAdmin can be <%= link_to('installed', '/documentation/basics/install') %> in minutes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pad-3">
+  <div class="row" data-equalizer data-equalize-on="medium">
+    <div class="column medium-6" data-equalizer-watch>
+      <div class="pad-sides-1 pad-1 vertically-centered">
+        <h4><i class="fa fa-bolt"></i> Powerful</h4>
+        <p class="text-large">
+          CohesiveAdmin leverages Rails' ActiveRecord library to enable intelligent form building.
+        </p>
+      </div>
+    </div>
+    <div class="column medium-6" data-equalizer-watch>
+      <%= image_tag(lorem.image('600x300')) %>
+    </div>
+  </div>
+</section>
+
+<section class="pad-3">
+  <div class="row" data-equalizer data-equalize-on="medium">
+    <div class="column medium-6" data-equalizer-watch>
+      <%= image_tag(lorem.image('600x300')) %>
+    </div>
+    <div class="column medium-6" data-equalizer-watch>
+      <div class="pad-sides-1 pad-1 vertically-centered">
+        <h4><i class="fa fa-user-o"></i> User Friendly</h4>
+        <p class="text-large">CohesiveAdmin uses <%= link_to('Materialize', 'http://materializecss.com') %>, a modern responsive front-end framework based on Material Design.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="column row medium-7 text-center"><hr /></div>
+
+<div class="column row text-center medium-7 pad-3">
+  <h4>Open Source</h4>
+  <%= content_tag(:p, lorem.paragraph, class: 'text-large') %>
+</div>
+
+<section class="pad-3 bg-orange">
+  <div class="column row text-center">
+    <%= link_to(content_tag(:h1, 'Cohesive Creative &amp; Code, Inc.', class: 'logo logo-alt logo-200'), 'http://www.cohesive.cc', class: 'logo-link', target: '_blank') %>
+    <div class="pad-1">
+      <%= content_tag(:h3, "Made by Cohesive", class: 'text-olive') %>
+      <p class="text-olive">
+        CohesiveAdmin is brought to you by the team at Cohesive. We create things.
+      </p>
+    </div>
+    <%= link_to('Work with Us', 'http://www.cohesive.cc', class: 'button bg-white bg-outline', target: '_blank') %>
+  </div>
+</section>

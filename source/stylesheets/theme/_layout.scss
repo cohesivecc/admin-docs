@@ -1,0 +1,62 @@
+
+
+$logo-width: 300px;
+$logo-height: 75px;
+
+.logo {
+  @include ir('cohesive-logo.svg', true);
+  width: $logo-width;
+  height: $logo-height;
+  margin: 0;
+
+  @each $w in (100 150 200) {
+    &.logo-#{$w} {
+      width: #{$w}px;
+      height: #{($w/$logo-width)*$logo-height}px;
+    }
+  }
+  &.logo-alt {
+    background-image: image-url('cohesive-logo-alt.svg');
+  }
+}
+
+header {
+  padding: 1rem 0;
+  a, a.button {
+    display: inline-block;
+    margin-bottom: 0;
+    text-decoration: none !important;
+    @include theme-font('roboto');
+    &.logo-link {
+      line-height: 1;
+    }
+  }
+  nav {
+    a {
+      padding: $button-padding;
+    }
+  }
+}
+
+hr {
+  width: 80%;
+  margin: 2rem auto;
+}
+
+code {
+  display: block;
+}
+
+@include breakpoint(medium up) {
+  .vertically-centered {
+    position: relative;
+    top: 50%;
+    @include transform(translateY(-50%));
+  }
+}
+
+footer {
+  .copyright {
+    a { text-decoration: none !important; }
+  }
+}

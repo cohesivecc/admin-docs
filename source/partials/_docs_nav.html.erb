@@ -1,0 +1,11 @@
+
+<% ['Basics', 'ActiveRecord', 'Integrations'].each do |c| %>
+
+  <%= content_tag(:h5, c) %>
+  <ul class="menu vertical">
+    <% sitemap.resources.select {|p| p.data['category'] == c }.sort_by {|p| p.data['position'] }.each do |p| %>
+      <li><%= link_to(p.data['title'], p.url) %></li>
+    <% end %>
+  </ul>
+
+<% end %>

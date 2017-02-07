@@ -1,4 +1,6 @@
 
+activate :directory_indexes
+
 ###
 # Compass
 ###
@@ -14,6 +16,12 @@ compass_config do |config|
   # config.images_dir = "images"
   # config.javascripts_dir = "javascripts"
 end
+
+###
+# Markdown
+###
+set :markdown, tables: true, autolink: true, gh_blockcode: true, fenced_code_blocks: true, with_toc_data: false
+set :markdown_engine, :redcarpet
 
 ###
 # Github Pages Deployment
@@ -33,6 +41,8 @@ end
 page '/*.xml', layout: false
 page '/*.json', layout: false
 page '/*.txt', layout: false
+
+page '/documentation/*', layout: 'documentation'
 
 # With alternative layout
 # page "/path/to/file.html", layout: :otherlayout
