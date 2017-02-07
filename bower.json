@@ -1,0 +1,8 @@
+{
+  "name": "CohesiveAdmin Documentation",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "foundation-sites": "~6.2.3"
+  }
+}

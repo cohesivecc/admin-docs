@@ -1,0 +1,71 @@
+
+// Outlined Buttons
+button, .button {
+  &.bg-outline {
+    color: $primary-color;
+    background-color: transparent;
+    border: $button-border-width $button-border-style $button-background;
+    &:hover, &:focus, &:active { background-color: transparent; }
+  }
+}
+
+// Theme Colors
+// .text-blue, .bg-blue etc. - colors are sourced from /stylesheets/theme/_colors.scss
+@each $name, $data in $theme-palette {
+
+  $color  : map-get($data, color);
+  $text   : map-get($data, text);
+  $link   : map-get($data, link);
+  $opacity: map-get($data, overlay_opacity);
+
+
+  // background classes
+  .bg-#{$name} { background-color: $color; }  // solid color bg
+  .bg-overlay-#{$name} { @include background-image(linear-gradient(rgba($color, $opacity), rgba($color, $opacity))); } // semi-transparent overlay
+
+  // typography withing .bg-color containers
+  .bg-#{$name}, .bg-overlay-#{$name} {
+    color: $text;
+		a:not(.button) {
+      color: $link;
+      // underline same-colored links for visibility
+			@if $text == $link {
+				text-decoration: underline;
+			}
+		}
+  } // end .bg-*
+
+
+  // text color
+  .text-#{$name} { color: $color; }
+
+  button, .button {
+    $hover-color: darken($color, 10%);
+
+    &.bg-#{$name} {
+      // darken background on hover
+      border-color: $color;
+
+      &:hover, &:focus, &:active {
+        border-color: $hover-color;
+        background-color: $hover-color;
+      }
+
+      // 'outlined' buttons
+      &.bg-outline {
+        color: $color;
+        // darken border & text on hover
+        &:hover, &:focus, &:active {
+          color: $hover-color;
+          border-color: $hover-color;
+          background: transparent;
+        }
+      }
+
+    }
+
+  } // end button, .button
+
+}
+
+.bg-transparent { background-color: transparent; }

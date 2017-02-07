@@ -1,0 +1,49 @@
+
+// Padding helper classes
+// These work like column classes in Foundation, bubbling upward:
+//    .pad-small-2 applies to small, medium and large
+
+@mixin pad-amounts($prefix: '') {
+
+  .#{$prefix}no-pad { padding: 0; }
+  .#{$prefix}pad-column {
+    padding-left: rem-calc(map-get($grid-column-gutter, medium));
+    padding-right: rem-calc(map-get($grid-column-gutter, medium));
+  }
+
+  // simple padding classes for containers
+  $padding-amounts: 0 1 2 3 4 5 6 7 8 9 10;
+  $pad-factor: 2;
+
+  @each $h in $padding-amounts {
+    .#{$prefix}pad-#{$h} {
+      padding-top: #{$h * $pad-factor}em;
+      padding-bottom: #{$h * $pad-factor}em;
+    }
+    .#{$prefix}pad-top-#{$h}     { padding-top: #{$h * $pad-factor}em; }
+    .#{$prefix}pad-bottom-#{$h}  { padding-bottom: #{$h * $pad-factor}em; }
+
+
+    .#{$prefix}pad-sides-#{$h} {
+      padding-left: #{$h * $pad-factor}em;
+      padding-right: #{$h * $pad-factor}em;
+    }
+    .#{$prefix}pad-left-#{$h}    { padding-left: #{$h * $pad-factor}em; }
+    .#{$prefix}pad-right-#{$h}   { padding-right: #{$h * $pad-factor}em; }
+  }
+
+}
+
+@include pad-amounts();
+
+@include breakpoint(small only) {
+  @include pad-amounts("small-");
+}
+
+@include breakpoint(medium up) {
+  @include pad-amounts("medium-");
+}
+
+@include breakpoint(large up) {
+  @include pad-amounts("large-");
+}

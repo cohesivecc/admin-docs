@@ -1,0 +1,22 @@
+
+@function map-deep-get($map, $keys...) {
+    @each $key in $keys {
+        $map: map-get($map, $key);
+    }
+    @return $map;
+}
+@function theme-font-family($name) {
+  @return map-deep-get($theme-fonts, $name, family);
+}
+@function theme-font-weight($name, $variant) {
+  @return map-deep-get($theme-fonts, $name, variants, $variant, weight);
+}
+@function theme-font-style($name, $variant) {
+  @return map-deep-get($theme-fonts, $name, variants, $variant, style);
+}
+@function theme-color($name) {
+  @return map-deep-get($theme-palette, $name, color);
+}
+@function theme-icon($name) {
+  @return map-get($theme-icons, $name);
+}

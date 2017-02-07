@@ -1,0 +1,19 @@
+
+.bg-repeat-no-repeat { background-repeat: no-repeat; }
+.bg-repeat 		{ background-repeat: repeat !important; }
+.bg-repeat-x 	{ background-repeat: repeat-x; }
+.bg-repeat-y 	{ background-repeat: repeat-y; }
+
+$vertical: (top, center, bottom);
+$horizontal: (left, center, right);
+
+@each $v in $vertical {
+  @each $h in $horizontal {
+		.bg-#{$v}-#{$h} { background-repeat: no-repeat; background-position: $v $h; }
+	}
+}
+.bg-fixed        { background-attachment: fixed; }
+
+.bg-cover 			 { @include background-size(cover); }
+.bg-contain 		 { @include background-size(contain !important); }
+.bg-initial		   { @include background-size(initial); }
