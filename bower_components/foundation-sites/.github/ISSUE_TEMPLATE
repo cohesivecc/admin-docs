@@ -3,9 +3,9 @@
 <p><strong>How can we reproduce this bug?</strong></p>
 
 <ol>
-  <li>Step one</li>
-  <li>Step two</li>
-  <li>Step three</li>
+<li>Step one</li>
+<li>Step two</li>
+<li>Step three</li>
 </ol>
 
 <p><strong>What did you expect to happen?</strong></p>
@@ -17,6 +17,6 @@
 <p>Give us a link to a CodePen or JSFiddle that recreates the issue.</p>
 
 <ul>
-  <li><a href="http://codepen.io/rafibomb/pen/xVVGOB">CodePen with Foundation 6 and MotionUI</a></li>
-  <li><a href="http://codepen.io/rafibomb/pen/jqqPra">CodePen with Foundation 6, Flexbox grid and MotionUI</a></li>
+<li><a href="http://codepen.io/rafibomb/pen/xVVGOB">CodePen with Foundation 6 and MotionUI</a></li>
+<li><a href="http://codepen.io/rafibomb/pen/jqqPra">CodePen with Foundation 6, Flexbox grid and MotionUI</a></li>
 </ul>

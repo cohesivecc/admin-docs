@@ -4,7 +4,7 @@ Error: Undefined variable: "$theme-fonts".
         from line 1 of /Users/nealwhite/Documents/apps/cohesive/admin-docs/source/stylesheets/theme/theme.scss
 
 1: @import "icon_font";
-2: // @import "app/*";
+2: @import "layout";
 
 Backtrace:
 /Users/nealwhite/Documents/apps/cohesive/admin-docs/source/stylesheets/theme/icon_font.scss:4
@@ -136,4 +136,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$theme-fonts\".\A         on line 4 of /Users/nealwhite/Documents/apps/cohesive/admin-docs/source/stylesheets/theme/icon_font.scss\A         from line 1 of /Users/nealwhite/Documents/apps/cohesive/admin-docs/source/stylesheets/theme/theme.scss\A \A 1: @import \"icon_font\";\A 2: // @import \"app/*\";"; }
+  content: "Error: Undefined variable: \"$theme-fonts\".\A         on line 4 of /Users/nealwhite/Documents/apps/cohesive/admin-docs/source/stylesheets/theme/icon_font.scss\A         from line 1 of /Users/nealwhite/Documents/apps/cohesive/admin-docs/source/stylesheets/theme/theme.scss\A \A 1: @import \"icon_font\";\A 2: @import \"layout\";"; }

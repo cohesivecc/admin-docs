@@ -1,69 +1,63 @@
-<h1 id="what-input">What Input?</h1>
+<h1>What Input?</h1>
 
-<h2 id="what-input-is-now-v200">What Input is now v2.0.0</h2>
+<h2>What Input is now v2.0.0</h2>
 
-<p>Because of the ever-shifing complexity of supporting module loaders, <strong>What Input</strong> v2.0.0 no longer supports UMD module loading (e.g., <code>var WhatInput = require('what-input')</code>). You can still require What Input without assigning a variable (e.g., <code>require('what-input')</code>).</p>
+<p>Because of the ever-shifing complexity of supporting module loaders, <strong>What Input</strong> v2.0.0 no longer supports UMD module loading (e.g., <code>var WhatInput = require(&#39;what-input&#39;)</code>). You can still require What Input without assigning a variable (e.g., <code>require(&#39;what-input&#39;)</code>).</p>
 
 <p>If you need UMD module loading, check out the last <a href="https://github.com/ten1seven/what-input/releases/tag/v1.2.5">v1.x.x</a> release or <a href="https://github.com/ten1seven/what-input/issues">open a ticket</a> so I can assess demand.</p>
 
-<h2 id="about-what-input">About What Input</h2>
+<h2>About What Input</h2>
 
 <p><strong>A global utility for tracking the current input method (mouse, keyboard or touch).</strong></p>
 
 <p>What Input improves on <a href="https://github.com/ten1seven/track-focus">track-focus</a> by adding a data attribute on the <code>&lt;body&gt;</code> instead of littering the DOM with classes on elements that have been interacted with. It also exposes a simple API that can be used for scripting interactions.</p>
 
-<h2 id="how-it-works">How it works</h2>
+<h2>How it works</h2>
 
 <p>What Input uses event bubbling on the <code>&lt;body&gt;</code> to watch for mouse, keyboard and touch events (via <code>mousedown</code>, <code>keydown</code> and <code>touchstart</code>). It then sets or updates a <code>data-whatinput</code> on the <code>&lt;body&gt;</code>.</p>
 
 <p>Since the form fields <code>input</code> and <code>textarea</code> rely on the keyboard as their only means of input, What Input <em>does not</em> switch the input type to keyboard when typing to preserve the last detected input type. To override this behavior and allow the keyboard to be recorded, add:</p>
 
-<p>```html</p>
-<body data-whatinput-formtyping="">
-```
+<pre><code class="html">&lt;body data-whatinput-formtyping&gt;
+</code></pre>
 
-Where present, Pointer Events are supported, but note that `pen` inputs are remapped to `touch`.
+<p>Where present, Pointer Events are supported, but note that <code>pen</code> inputs are remapped to <code>touch</code>.</p>
 
-What Input also exposes a tiny API that allows the developer to ask for or set the current input.
+<p>What Input also exposes a tiny API that allows the developer to ask for or set the current input.</p>
 
-_What Input does not make assumptions about the input environment before the user makes their first interaction._
+<p><em>What Input does not make assumptions about the input environment before the user makes their first interaction.</em></p>
 
-## Installing
+<h2>Installing</h2>
 
-Download the file directly...
+<p>Download the file directly...</p>
 
-or install via Bower...
+<p>or install via Bower...</p>
 
-```shell
-bower install what-input
-```
+<pre><code class="shell">bower install what-input
+</code></pre>
 
-or install via NPM...
+<p>or install via NPM...</p>
 
-```shell
-npm install what-input
-```
+<pre><code class="shell">npm install what-input
+</code></pre>
 
-## Usage
+<h2>Usage</h2>
 
-Include the script directly in your project.
+<p>Include the script directly in your project.</p>
 
-```html
-<script src="assets/scripts/what-input.js"></script>
-```
+<pre><code class="html">&lt;script src=&quot;assets/scripts/what-input.js&quot;&gt;&lt;/script&gt;
+</code></pre>
 
-Or require with a script loader.
+<p>Or require with a script loader.</p>
 
-```javascript
-require('what-input');
-```
+<pre><code class="javascript">require(&#39;what-input&#39;);
+</code></pre>
 
-What Input will start doing its thing while you do yours.
+<p>What Input will start doing its thing while you do yours.</p>
 
-### Example Styling
+<h3>Example Styling</h3>
 
-```css
-/**
+<pre><code class="css">/**
  * set a default :focus style
  */
 a:focus {
@@ -72,97 +66,93 @@ a:focus {
 
 /*
  * remove :focus style via What Input using progressive enhancement
- * so :focus isn't left broken if JavaScript fails
+ * so :focus isn&#39;t left broken if JavaScript fails
  */
-[data-whatinput="mouse"] a:focus,
-[data-whatinput="touch"] a:focus {
+[data-whatinput=&quot;mouse&quot;] a:focus,
+[data-whatinput=&quot;touch&quot;] a:focus {
   outline: none;
 }
-```
+</code></pre>
 
-### Scripting
+<h3>Scripting</h3>
 
-#### Current Input
+<h4>Current Input</h4>
 
-Ask What Input what the current input method is. This works best if asked after the events What Input is bound to (`mousedown`, `keydown` and `touchstart`). Because `click` always executes last in the event tree, What Input will be able to answer with the event that _just_ happened.
+<p>Ask What Input what the current input method is. This works best if asked after the events What Input is bound to (<code>mousedown</code>, <code>keydown</code> and <code>touchstart</code>). Because <code>click</code> always executes last in the event tree, What Input will be able to answer with the event that <em>just</em> happened.</p>
 
-```javascript
-whatInput.ask(); // returns `mouse`, `keyboard` or `touch`
+<pre><code class="javascript">whatInput.ask(); // returns `mouse`, `keyboard` or `touch`
 
-myButton.addEventListener('click', function() {
+myButton.addEventListener(&#39;click&#39;, function() {
 
-  if (whatInput.ask() === 'mouse') {
+  if (whatInput.ask() === &#39;mouse&#39;) {
     // do mousy things
-  } else if (whatInput.ask() === 'keyboard') {
+  } else if (whatInput.ask() === &#39;keyboard&#39;) {
     // do keyboard things
   }
 
 });
-```
+</code></pre>
 
-Ask What Input to return an array of all the input types that have been used _so far_.
+<p>Ask What Input to return an array of all the input types that have been used <em>so far</em>.</p>
 
-```javascript
-whatInput.types(); // ex. returns ['mouse', 'keyboard']
-```
+<pre><code class="javascript">whatInput.types(); // ex. returns [&#39;mouse&#39;, &#39;keyboard&#39;]
+</code></pre>
 
-Tell What Input what's being used. This can be useful if you'd like to set an input method before the user has actually interacted with the page. What Input is not so assumptive on its own.
+<p>Tell What Input what&#39;s being used. This can be useful if you&#39;d like to set an input method before the user has actually interacted with the page. What Input is not so assumptive on its own.</p>
 
-```javascript
-whatInput.set('hamster');
+<pre><code class="javascript">whatInput.set(&#39;hamster&#39;);
 
-whatInput.ask(); // 'hamster'
-```
+whatInput.ask(); // &#39;hamster&#39;
+</code></pre>
 
-#### Key Logging
+<h4>Key Logging</h4>
 
-Along with tracking the use of the keyboard, What Input keeps track of the currently pressed keys and stores them in an array. Instead of returning cryptic key codes, What Input uses plain language.
+<p>Along with tracking the use of the keyboard, What Input keeps track of the currently pressed keys and stores them in an array. Instead of returning cryptic key codes, What Input uses plain language.</p>
 
-This can be used if, for example, you want to track how an element is being interacted with.
+<p>This can be used if, for example, you want to track how an element is being interacted with.</p>
 
-```javascript
-whatInput.keys(); // ex. returns ['shift', 'tab']
+<pre><code class="javascript">whatInput.keys(); // ex. returns [&#39;shift&#39;, &#39;tab&#39;]
 
-myMenuTab.addEventListener('keyup', function() {
+myMenuTab.addEventListener(&#39;keyup&#39;, function() {
 
   // query for the down arrow
-  if (whatInput.keys().indexOf('down') !== -1) {
+  if (whatInput.keys().indexOf(&#39;down&#39;) !== -1) {
     // open the dropdown menu
   }
 
 });
-```
+</code></pre>
 
-What Input only responds to the following "action" keys: 'tab', 'enter', 'shift', 'esc', 'space', 'left', 'up', 'right' and 'down'.
+<p>What Input only responds to the following &quot;action&quot; keys: &#39;tab&#39;, &#39;enter&#39;, &#39;shift&#39;, &#39;esc&#39;, &#39;space&#39;, &#39;left&#39;, &#39;up&#39;, &#39;right&#39; and &#39;down&#39;.</p>
 
-## Compatibility
+<h2>Compatibility</h2>
 
-What Input works in all modern browsers. For compatibility with IE8, polyfills are required for:
+<p>What Input works in all modern browsers. For compatibility with IE8, polyfills are required for:</p>
 
-* addEventListener
-* IndexOf
+<ul>
+<li>addEventListener</li>
+<li>IndexOf</li>
+</ul>
 
-Add your own, or grab the bundle included here.
+<p>Add your own, or grab the bundle included here.</p>
 
-```html
-<!--[if lte IE 8]>
-  <script src="lte-IE8.js"></script>
-<![endif]-->
-```
+<pre><code class="html">&lt;!--[if lte IE 8]&gt;
+  &lt;script src=&quot;lte-IE8.js&quot;&gt;&lt;/script&gt;
+&lt;![endif]--&gt;
+</code></pre>
 
-## Demo
+<h2>Demo</h2>
 
-Check out the demo to see What Input in action.
+<p>Check out the demo to see What Input in action.</p>
 
-http://ten1seven.github.io/what-input
+<p><a href="http://ten1seven.github.io/what-input">http://ten1seven.github.io/what-input</a></p>
 
-## Acknowledgments
+<h2>Acknowledgments</h2>
 
-Special thanks to [Viget](http://viget.com/) for their encouragement and commitment to open source projects. Visit [code.viget.com](http://code.viget.com/) to see more projects from [Viget](http://viget.com).
+<p>Special thanks to <a href="http://viget.com/">Viget</a> for their encouragement and commitment to open source projects. Visit <a href="http://code.viget.com/">code.viget.com</a> to see more projects from <a href="http://viget.com">Viget</a>.</p>
 
-What Input is written and maintained by [@ten1seven](https://github.com/ten1seven).
+<p>What Input is written and maintained by <a href="https://github.com/ten1seven">@ten1seven</a>.</p>
 
-## License
+<h2>License</h2>
 
-What Input is freely available under the [MIT License](http://opensource.org/licenses/MIT).
-</body>
+<p>What Input is freely available under the <a href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
