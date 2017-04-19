@@ -8,19 +8,20 @@ position: 0
 Add it to your Gemfile:
 
 ```ruby
-gem 'cohesive_admin', git: 'git@github.com:cohesivecc/admin.git', tag: "<specific tag number here>"
+gem 'cohesive_admin', git: 'git@github.com:cohesivecc/admin.git'
 ```
 
-Install the migrations:
+Update your bundle:
+```console
+bundle update
+```
+
+CohesiveAdmin relies on a User model for authentication.  To add it, install and run the migrations:
 
 ```console
 rake cohesive_admin:install:migrations
+rake db:migrate
 ```
 
-In development, password validation is disabled for both user creation, as well as authentication. This makes it easy to create test users in development and log in to the admin interface with any account.
+Installation is done!  You'll want to [configure models](/documentation/basics/configure) next.
 
-To create a new user via the IRB console:
-
-```ruby
-u = CohesiveAdmin::User.create({ email: 'bob@example.com', password: 'doesNOTmatter', name: 'Admin User' })
-```

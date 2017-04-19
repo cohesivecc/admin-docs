@@ -38,9 +38,17 @@ header {
   }
 }
 
+ul.menu.vertical {
+	margin-bottom:0.5rem;
+}
+
 hr {
   width: 80%;
   margin: 2rem auto;
+}
+
+pre {
+	margin-bottom:1rem;
 }
 
 code {

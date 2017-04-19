@@ -1,0 +1,28 @@
+There are only a few steps you need to take to clone this repository and start making contributions to our documentation.
+
+1. Clone the repository
+
+	git clone git@github.com:cohesivecc/admin-docs.git admin-docs
+	cd admin-docs
+	
+2. Install the bundle
+
+	bundle install
+	
+3. Install npm and bower if you don't have them already.
+
+	Installing node and npm:
+	https://docs.npmjs.com/getting-started/installing-node
+
+	Install bower:
+	npm install -g bower
+	
+4. Install the bower package.
+
+	bower install
+	
+5. Link the project in puma-dev
+
+	puma-dev link
+
+6. This documentation web app should now be accessible via http://admin-docs.dev
